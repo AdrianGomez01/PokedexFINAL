@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">PokedexFINAL</string>
+    <string name="app_name">Pokedex</string>
+    <string name="HintUsuario">Usuario</string>
+    <string name="greeting">Bienvenido a la pokedex!</string>
+    <string name="credits">Créditos</string>
+    <string name="contact">Contactar</string>
+    <string name="appInfo">Estás usando la versión 1 de la Pokédex.\nEn esta aplicación podrás comprobar los datos de los pokemon que más te gustan, como por ejemplo sus tipos, descripción, movimientos, etc...</string>
+    <string name="mail">agomgar180@g.educaand.es</string>
+    <string name="subject">Consulta de la app Pokedex</string>
+    <string name="Enter">Entrar</string>
+    <string name="logo">Logo</string>
+    <string name="inicio">Inicio</string>
+    <string name="menu">Menú</string>
+    <string name="exit">Salir</string>
+    <string name="pokemon_list">Lista de pokemon</string>
+    <string name="type1">Tipo 1</string>
+    <string name="type2">Tipo 2</string>
+    <string name="poke_image">Imagen del Pokemon</string>
+    <string name="fav_list">Lista de favoritos</string>
+    <string name="details">Detalles</string>
+    <string name="pokemon">Pokémon</string>
+    <string name="fav_details">Detalles de tus Favoritos</string>
+    <string name="future_user_info">En versiones posteriores de la aplicación podrás consultar aquí tu información personal</string>
+    <string name="start">Comenzar</string>
+    <string name="welcome">Bienvenido!</string>
+    <string name="hintWelcome">¡En esta aplicación podrás consultar Pokemon y guardar tus favoritos!</string>
 </resources>

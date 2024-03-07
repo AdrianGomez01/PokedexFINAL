@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.pokedex.LoginFragment"
+        android:label="fragment__login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/creditFragment"
+        android:name="com.example.pokedex.CreditFragment"
+        android:label="fragment_credit"
+        tools:layout="@layout/fragment_credit">
+        <action
+            android:id="@+id/action_creditFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.pokedex.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_creditFragment"
+            app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_pokemonListFragment"
+            app:destination="@id/pokemonListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_favPokemonListFragment"
+            app:destination="@id/favPokemonListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonListFragment"
+        android:name="com.example.pokedex.PokemonListFragment"
+        android:label="fragment_pokemon_list"
+        tools:layout="@layout/fragment_pokemon_list">
+        <action
+            android:id="@+id/action_pokemonListFragment_to_detailItemFragment"
+            app:destination="@id/detailItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favPokemonListFragment"
+        android:name="com.example.pokedex.FavPokemonListFragment"
+        android:label="FavPokemonListFragment">
+        <action
+            android:id="@+id/action_favPokemonListFragment_to_detailFavItemFragment"
+            app:destination="@id/detailFavItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.example.pokedex.DetailItemFragment"
+        android:label="DetailItemFragment" >
+        <action
+            android:id="@+id/action_detailItemFragment_to_pokemonListFragment"
+            app:destination="@id/pokemonListFragment" />
+        <argument
+            android:name="idPoke"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFavItemFragment"
+        android:name="com.example.pokedex.DetailFavItemFragment"
+        android:label="fragment_fav_details"
+        tools:layout="@layout/fragment_fav_details" >
+        <action
+            android:id="@+id/action_detailFavItemFragment_to_favPokemonListFragment"
+            app:destination="@id/favPokemonListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.pokedex.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.pokedex.ViewPagerFragment"
+        android:label="fragment_viewpager"
+        tools:layout="@layout/fragment_viewpager">
+        <action
+            android:id="@+id/action_viewPagerFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>

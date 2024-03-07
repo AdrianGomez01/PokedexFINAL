@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="HintUsuario">User</string>
+    <string name="greeting">Welcome to the Pokedex!</string>
+    <string name="credits">Credits</string>
+    <string name="contact">Contact</string>
+    <string name="appInfo">You are using version 1 of the Pokedex.\nIn this application, you can check the data of your favorite Pokemon, such as their types, descriptions, moves, etc...</string>
+    <string name="mail">agomgar180@g.educaand.es</string>
+    <string name="subject">Pokedex App Inquiry</string>
+    <string name="Enter">Enter</string>
+    <string name="logo">Logo</string>
+    <string name="inicio">Home</string>
+    <string name="menu">Menu</string>
+    <string name="exit">Exit</string>
+    <string name="pokemon_list">Pokemon List</string>
+    <string name="type1">Type 1</string>
+    <string name="type2">Type 2</string>
+    <string name="poke_image">Pokemon Image</string>
+    <string name="fav_list">Favorites List</string>
+    <string name="details">Details</string>
+    <string name="pokemon">Pokémon</string>
+    <string name="fav_details">Favorite Details</string>
+    <string name="future_user_info">In future versions of the application, you will be able to check your personal information here.</string>
+    <string name="start">Start</string>
+    <string name="welcome">Welcome!</string>
+    <string name="hintWelcome">In this application, you can check Pokemon and save your favorites!</string>
+</resources>
