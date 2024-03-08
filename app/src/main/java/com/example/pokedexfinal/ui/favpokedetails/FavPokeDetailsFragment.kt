@@ -1,4 +1,4 @@
-package com.example.pokedexfinal.ui.pokedetails
+package com.example.pokedexfinal.ui.favpokedetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,24 +16,27 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.api.Pokemon
+import com.example.pokedexfinal.databinding.FragmentFavPokemonListBinding
+import com.example.pokedexfinal.databinding.FragmentPokemonListBinding
+import com.example.pokedexfinal.ui.pokedetails.PokeDetailsVM
 import kotlinx.coroutines.launch
 
-class PokeDetailsFragment : Fragment() {
+class FavPokeDetailsFragment : Fragment() {
 
     companion object {
         const val DRAWABLE = "drawable"
     }
 
 
-    private var _binding: FragmentPokeDetailsBinding? = null
+    private var _binding: FragmentFavPokemonListBinding? = null
     private val binding
         get() = _binding!!
 
 
     //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (1)
-    val args: PokeDetailsFragmentArgs by navArgs()
+    val args: FragmentFavPokemonListBinding by navArgs()
 
-    private val pokeDetailsVM by viewModels<PokeDetailsVM> { PokeDetailsVM.Factory }
+    private val favPokeDetailsVM by viewModels<FavPokeDetailsVM> { FavPokeDetailsVM.Factory }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,14 +50,14 @@ class PokeDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDetailsBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentFavPokemonListBinding.inflate(layoutInflater, container, false)
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
-        //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (2)
-        pokeDetailsVM.setPoke(args.idPoke)
 
-        //TODO
+       // favPokeDetailsVM.setPoke(args.idPoke)
+
+
        // sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         //pokemon = sharedViewModel.getPokemon()
 
@@ -68,28 +71,14 @@ class PokeDetailsFragment : Fragment() {
         setCollectors()
 
 
-        binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private fun setCollectors() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokeDetailsVM.uiState.collect { pokeState ->
-                    if(!pokeState.isLoading) {
-                        binding.pbLoadingDetails.isVisible = false
-                        pokeState.poke?.let {
-                            binding.tvPokeNameDetails.text = it.name
-                            //binding.ivPhoto.setImageResource(requireContext().resources.getIdentifier("iron_man", DRAWABLE,requireContext().packageName))
-                            Glide.with(requireContext()).load(it.photo).circleCrop().into(binding.ivPokeDetails)
-                            binding.tvTipo1Det.text = it.type1
-                            binding.tvTipo2Det.text = it.type2
-                            binding.tvDescriptionDetails.text = it.description
-                        }
-                    } else {
-                        binding.pbLoadingDetails.isVisible = true
-                    }
+
+
                 }
             }
         }
