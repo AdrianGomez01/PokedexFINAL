@@ -7,92 +7,81 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.pokedexfinal.ui.login.LoginFragment"
-        android:label="fragment__login"
-        tools:layout="@layout/fragment_login">
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_viewPagerFragment"
             app:destination="@id/viewPagerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/creditFragment"
-        android:name="com.example.pokedexfinal.ui.credit.CreditFragment"
-        android:label="fragment_credit"
-        tools:layout="@layout/fragment_credit">
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.pokedexfinal.ui.viewpager.ViewPagerFragment"
+        android:label="ViewPagerFragment" >
         <action
-            android:id="@+id/action_creditFragment_to_menuFragment"
+            android:id="@+id/action_viewPagerFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.example.pokedexfinal.ui.menu.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu">
+        android:label="MenuFragment" >
         <action
             android:id="@+id/action_menuFragment_to_creditFragment"
             app:destination="@id/creditFragment" />
         <action
+            android:id="@+id/action_menuFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+        <action
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_pokemonListFragment"
-            app:destination="@id/pokemonListFragment" />
+            android:id="@+id/action_menuFragment_to_pokeListFragment"
+            app:destination="@id/pokeListFragment" />
         <action
             android:id="@+id/action_menuFragment_to_favPokemonListFragment"
             app:destination="@id/favPokemonListFragment" />
-        <action
-            android:id="@+id/action_menuFragment_to_userInfoFragment"
-            app:destination="@id/userInfoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/pokemonListFragment"
+        android:id="@+id/creditFragment"
+        android:name="com.example.pokedexfinal.ui.credit.CreditFragment"
+        android:label="fragment_credit"
+        tools:layout="@layout/fragment_credit" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.pokedexfinal.ui.userinfo.UserInfoFragment"
+        android:label="UserInfoFragment" />
+    <fragment
+        android:id="@+id/pokeListFragment"
         android:name="com.example.pokedexfinal.ui.pokelist.PokeListFragment"
-        android:label="fragment_pokemon_list"
-        tools:layout="@layout/fragment_pokemon_list">
+        android:label="PokeListFragment" >
         <action
-            android:id="@+id/action_pokemonListFragment_to_detailItemFragment"
+            android:id="@+id/action_pokeListFragment_to_pokeDetailsFragment"
             app:destination="@id/pokeDetailsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/favPokemonListFragment"
-        android:name="com.example.pokedexfinal.ui.favpokelist.FavPokemonListFragment"
-        android:label="FavPokemonListFragment">
-        <action
-            android:id="@+id/action_favPokemonListFragment_to_detailFavItemFragment"
-            app:destination="@id/favPokeDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/pokeDetailsFragment"
         android:name="com.example.pokedexfinal.ui.pokedetails.PokeDetailsFragment"
-        android:label="DetailItemFragment" >
-        <action
-            android:id="@+id/action_pokeDetailsFragment_to_pokemonListFragment"
-            app:destination="@id/pokemonListFragment" />
+        android:label="PokeDetailsFragment" >
         <argument
             android:name="idPoke"
             app:argType="string"
             android:defaultValue='""' />
     </fragment>
     <fragment
-        android:id="@+id/favPokeDetailsFragment"
-        android:name="com.example.pokedexfinal.ui.favpokedetails.FavPokeDetailsFragment"
-        android:label="fragment_fav_details"
-        tools:layout="@layout/fragment_fav_details" >
+        android:id="@+id/favPokemonListFragment"
+        android:name="com.example.pokedexfinal.ui.favpokelist.FavPokemonListFragment"
+        android:label="FavPokemonListFragment" >
         <action
-            android:id="@+id/action_favPokeDetailsFragment_to_favPokemonListFragment"
-            app:destination="@id/favPokemonListFragment" />
+            android:id="@+id/action_favPokemonListFragment_to_favPokeDetailsFragment2"
+            app:destination="@id/favPokeDetailsFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/userInfoFragment"
-        android:name="com.example.pokedexfinal.ui.userinfo.UserInfoFragment"
-        android:label="fragment_user_info"
-        tools:layout="@layout/fragment_user_info" />
-    <fragment
-        android:id="@+id/viewPagerFragment"
-        android:name="com.example.pokedexfinal.ui.viewpager.ViewPagerFragment"
-        android:label="fragment_viewpager"
-        tools:layout="@layout/fragment_viewpager">
-        <action
-            android:id="@+id/action_viewPagerFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+        android:id="@+id/favPokeDetailsFragment2"
+        android:name="com.example.pokedexfinal.ui.favpokedetails.FavPokeDetailsFragment"
+        android:label="FavPokeDetailsFragment" >
+        <argument
+            android:name="idPoke"
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
 </navigation>

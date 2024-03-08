@@ -16,8 +16,11 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.api.Pokemon
+import com.example.pokedexfinal.databinding.FragmentDetailsBinding
+import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
 import com.example.pokedexfinal.databinding.FragmentFavPokemonListBinding
 import com.example.pokedexfinal.databinding.FragmentPokemonListBinding
+import com.example.pokedexfinal.ui.pokedetails.PokeDetailsFragmentArgs
 import com.example.pokedexfinal.ui.pokedetails.PokeDetailsVM
 import kotlinx.coroutines.launch
 
@@ -28,13 +31,13 @@ class FavPokeDetailsFragment : Fragment() {
     }
 
 
-    private var _binding: FragmentFavPokemonListBinding? = null
+    private var _binding: FragmentFavDetailsBinding? = null
     private val binding
         get() = _binding!!
 
 
     //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (1)
-    val args: FragmentFavPokemonListBinding by navArgs()
+    val args: FavPokeDetailsFragmentArgs by navArgs()
 
     private val favPokeDetailsVM by viewModels<FavPokeDetailsVM> { FavPokeDetailsVM.Factory }
 
@@ -50,7 +53,7 @@ class FavPokeDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFavPokemonListBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentFavDetailsBinding.inflate(layoutInflater, container, false)
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
@@ -76,7 +79,7 @@ class FavPokeDetailsFragment : Fragment() {
     private fun setCollectors() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                pokeDetailsVM.uiState.collect { pokeState ->
+                favPokeDetailsVM.uiState.collect { pokeState ->
 
 
                 }

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,11 +22,9 @@ class PokeListFragment : Fragment() {
     val binding
         get() = _binding!!
 
-    val pokemons = Datasource.getPokemonList()
+    private val pokeListVM by viewModels<PokeListVM> { PokeListVM.Factory }
 
     private lateinit var pokemonAdapter: PokeAdapter
-    private lateinit var layoutManager: LayoutManager
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

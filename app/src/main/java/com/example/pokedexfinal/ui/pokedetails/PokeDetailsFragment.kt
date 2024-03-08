@@ -16,6 +16,9 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.api.Pokemon
+import com.example.pokedexfinal.databinding.FragmentDetailsBinding
+import com.example.pokedexfinal.databinding.FragmentFavPokemonListBinding
+import com.example.pokedexfinal.databinding.FragmentPokemonListBinding
 import kotlinx.coroutines.launch
 
 class PokeDetailsFragment : Fragment() {
@@ -25,7 +28,7 @@ class PokeDetailsFragment : Fragment() {
     }
 
 
-    private var _binding: FragmentPokeDetailsBinding? = null
+    private var _binding: FragmentDetailsBinding? = null
     private val binding
         get() = _binding!!
 

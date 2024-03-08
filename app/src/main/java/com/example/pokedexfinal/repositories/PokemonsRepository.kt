@@ -34,17 +34,17 @@ class PokemonsRepository(
         return getPoke(x)
     }
 
-    suspend fun getSomeRandHeroes(num : Int) : Response<List<Hero>> {
-        var heroList : MutableList<Hero> = mutableListOf()
+    suspend fun getSomeRandPokes(num : Int) : Response<List<Poke>> {
+        var pokeList : MutableList<Poke> = mutableListOf()
         for (i in 1 .. num) {
-            val heroResp = getRandHero()
-            if(heroResp.isSuccessful) {
-                heroResp.body()?.let { heroList.add(heroList.size,heroResp.body()!!) }
+            val pokeResp = getRandPoke()
+            if(pokeResp.isSuccessful) {
+                pokeResp.body()?.let { pokeList.add(pokeList.size,pokeResp.body()!!) }
             }
             else {
                 return Response.error(null,null)
             }
         }
-        return Response.success(heroList)
+        return Response.success(pokeList)
     }
 }
