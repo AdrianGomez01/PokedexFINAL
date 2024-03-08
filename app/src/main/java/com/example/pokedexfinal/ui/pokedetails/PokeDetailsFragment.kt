@@ -57,11 +57,6 @@ class PokeDetailsFragment : Fragment() {
         //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (2)
         pokeDetailsVM.setPoke(args.idPoke)
 
-        //TODO
-       // sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        //pokemon = sharedViewModel.getPokemon()
-
-
         return binding.root
     }
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.pokedex.databinding.FragmentUserInfoBinding
+import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentUserInfoBinding
 
 class UserInfoFragment : Fragment() {

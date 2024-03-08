@@ -36,7 +36,6 @@ class FavPokeDetailsFragment : Fragment() {
         get() = _binding!!
 
 
-    //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (1)
     val args: FavPokeDetailsFragmentArgs by navArgs()
 
     private val favPokeDetailsVM by viewModels<FavPokeDetailsVM> { FavPokeDetailsVM.Factory }
@@ -58,7 +57,7 @@ class FavPokeDetailsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
 
-       // favPokeDetailsVM.setPoke(args.idPoke)
+        favPokeDetailsVM.setPoke(args.idPoke)
 
 
        // sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)

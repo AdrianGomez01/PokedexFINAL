@@ -1,6 +1,6 @@
 package com.example.pokedexfinal.api
 
-import com.example.pokedexfinal.data.Poke
+
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -26,9 +26,9 @@ data class PokeApiResponse(
 // added property for the Spanish flavor text entries
     var spanishFlavorTextEntries: List<String> = emptyList()
 ) {
-    fun toPoke(): Poke {
-        return Poke(
-            id = id,
+    fun toPokemon(): Pokemon {
+        return Pokemon(
+            id = id.toString(),
             name = name,
             type1 = types[0].toString(),
             type2 = types[1].toString(),

@@ -1,12 +1,19 @@
 package com.example.pokedexfinal.dependencies
 
 import android.content.Context
+import androidx.datastore.preferences.preferencesDataStore
 import com.example.pokedexfinal.api.ApiService
 import com.example.pokedexfinal.api.PokeApiConfig
+import com.example.pokedexfinal.datamodel.UserPreferences
 import com.example.pokedexfinal.repositories.PokemonsRepository
+import com.example.pokedexfinal.repositories.UserPreferencesRepository
 
-class AppContainer(context : Context) {
+//Datastore. Configuración básica de la app.
+val Context.userDataStore by preferencesDataStore(name = UserPreferences.SETTINGS_FILE)
 
+class AppContainer(context: Context) {
+
+    //Repositorio de pokemons
     val pokemonsRepository: PokemonsRepository
         get() {
             return this.pokemonsRepository
@@ -16,7 +23,12 @@ class AppContainer(context : Context) {
     private val pokeApiService = PokeApiConfig.provideRetrofit().create(ApiService::class.java)
 
     //Creación del repositorio que hará uso de la API.
-    val pokemonRepository : PokemonsRepository = PokemonsRepository(pokeApiService)
+    val pokemonRepository: PokemonsRepository = PokemonsRepository(pokeApiService)
 
 
+    //Repositorio de configuración de usuario.
+    private val _userPreferencesRepository: UserPreferencesRepository by lazy {
+        UserPreferencesRepository(context.userDataStore)
+    }
+    val userPreferencesRepository get() = _userPreferencesRepository
 }

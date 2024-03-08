@@ -66,6 +66,9 @@
             android:name="idPoke"
             app:argType="string"
             android:defaultValue='""' />
+        <action
+            android:id="@+id/action_pokeDetailsFragment_to_pokeListFragment"
+            app:destination="@id/pokeListFragment" />
     </fragment>
     <fragment
         android:id="@+id/favPokemonListFragment"

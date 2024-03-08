@@ -1,9 +1,9 @@
 package com.example.pokedexfinal.ui.favpokedetails
 
-import com.example.pokedexfinal.data.Poke
+import com.example.pokedexfinal.api.Pokemon
 
 
 data class FavPokeDetailsUiState(
     val isLoading : Boolean = true,
-    val poke : Poke? = null
+    val poke : Pokemon? = null
 )

@@ -1,9 +1,10 @@
 package com.example.pokedexfinal.ui.pokedetails
 
-import com.example.pokedexfinal.data.Poke
+import com.example.pokedexfinal.api.Pokemon
+
 
 
 data class PokeDetailsUiState(
     val isLoading : Boolean = true,
-    val poke : Poke? = null
+    val poke : Pokemon? = null
 )

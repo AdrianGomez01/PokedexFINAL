@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.example.pokedexfinal.data.Poke
+import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.dependencies.MyPokedex
 import com.example.pokedexfinal.repositories.PokemonsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -33,7 +33,7 @@ class PokeListVM(
                 _uiState.update { currentSate ->
                     currentSate.copy(
                         isLoading = false,
-                        pokeList = myPokes?.let { it.toList() } ?: emptyList<Poke>()
+                        pokeList = myPokes?.let { it.toList() } ?: emptyList<Pokemon>()
                     )
                 }
             } else {
@@ -56,7 +56,7 @@ class PokeListVM(
                 val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
 
                 return PokeListVM(
-                    (application as MyPokedex).appContainer.pokemonsRepository
+                    (application as MyPokedex).appContainer.pokemonRepository
                 ) as T
             }
         }
