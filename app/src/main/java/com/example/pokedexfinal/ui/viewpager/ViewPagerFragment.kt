@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentViewpagerBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

@@ -31,37 +31,45 @@ class MenuFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.menu)
 
         binding.buttonCredits.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_creditFragment)
+            val action= MenuFragmentDirections.actionMenuFragmentToCreditFragment()
+            findNavController().navigate(action)
         }
         binding.buttonExit.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_loginFragment)
+            val action= MenuFragmentDirections.actionMenuFragmentToLoginFragment()
+            findNavController().navigate(action)
         }
         binding.buttonPokeList.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_pokemonListFragment)
+            val action= MenuFragmentDirections.actionMenuFragmentToPokeListFragment()
+            findNavController().navigate(action)
         }
         binding.buttonFavList.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_favPokemonListFragment)
+            val action= MenuFragmentDirections.actionMenuFragmentToFavPokemonListFragment()
+            findNavController().navigate(action)
         }
 
         binding.btnUser.setOnClickListener {
-            findNavController().navigate(R.id.action_menuFragment_to_userInfoFragment)
+            val action= MenuFragmentDirections.actionMenuFragmentToUserInfoFragment()
+            findNavController().navigate(action)
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
 
             when (item.itemId) {
                 R.id.bottom_List -> {
-                    findNavController().navigate(R.id.action_menuFragment_to_pokemonListFragment)
+                    val action= MenuFragmentDirections.actionMenuFragmentToPokeListFragment()
+                    findNavController().navigate(action)
                     true
                 }
 
                 R.id.bottom_Fav -> {
-                    findNavController().navigate(R.id.action_menuFragment_to_favPokemonListFragment)
+                    val action= MenuFragmentDirections.actionMenuFragmentToFavPokemonListFragment()
+                    findNavController().navigate(action)
                     true
                 }
 
                 R.id.bottom_User -> {
-                    findNavController().navigate(R.id.action_menuFragment_to_userInfoFragment)
+                    val action= MenuFragmentDirections.actionMenuFragmentToUserInfoFragment()
+                    findNavController().navigate(action)
                     true
                 }
                 else -> false

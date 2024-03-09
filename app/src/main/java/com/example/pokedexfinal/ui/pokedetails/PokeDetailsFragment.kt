@@ -54,7 +54,7 @@ class PokeDetailsFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
-        //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (2)
+
         pokeDetailsVM.setPoke(args.idPoke)
 
         return binding.root

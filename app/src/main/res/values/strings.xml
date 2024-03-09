@@ -24,4 +24,5 @@
     <string name="start">Comenzar</string>
     <string name="welcome">Bienvenido!</string>
     <string name="hintWelcome">¡En esta aplicación podrás consultar Pokemon y guardar tus favoritos!</string>
+    <string name="no_name" translatable="false">Introduzca un nombre de usuario válido</string>
 </resources>

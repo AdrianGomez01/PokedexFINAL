@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentStartBinding
+import com.example.pokedexfinal.ui.login.LoginFragmentDirections
 
 class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
@@ -32,7 +33,8 @@ class StartFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.Enter)
 
         binding.btnStart.setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_menuFragment)
+            val action= ViewPagerFragmentDirections.actionViewPagerFragmentToMenuFragment()
+            findNavController().navigate(action)
         }
 
         return binding.root

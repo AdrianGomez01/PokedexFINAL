@@ -1,6 +1,7 @@
 package com.example.pokedexfinal
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createMail() {
-        TODO("Not yet implemented")
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "plain/text"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.mail)))
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject))
+        startActivity(Intent.createChooser(intent, ""))
     }
 }

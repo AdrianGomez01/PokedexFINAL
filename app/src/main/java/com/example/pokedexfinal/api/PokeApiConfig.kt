@@ -5,10 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class PokeApiConfig {
     companion object {
-        //TODO
-        as
-        const val USER_TOKEN = ""
-        const val BASE_URL = ""
+
+        const val BASE_URL = "https://pokeapi.co/api/v2/"
 
         //Definición de la api de Retrofit2.
         fun provideRetrofit(): Retrofit {

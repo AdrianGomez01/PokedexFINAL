@@ -6,23 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
-    private val binding
-        get() = _binding!!
 
-    private lateinit var userName: String
+    private lateinit var binding: FragmentLoginBinding
+
+    private val loginVM : LoginVM by viewModels<LoginVM> { LoginVM.Factory }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -31,25 +36,46 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-
-        binding.buttonEnter.setOnClickListener {
-            userName = binding.etUserName.text.toString()
-            sharedViewModel.setUserName(userName)
-
-            if (userName == "") {
-                Snackbar.make(it, "Debes indicar tu nombre.", Snackbar.LENGTH_SHORT).show()
-            } else {
-                findNavController().navigate(R.id.action_loginFragment_to_viewPagerFragment)
-            }
-
-        }
+        setListeners()
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setCollectors()
+
+    }
+
+    private fun setCollectors() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                loginVM.uiState.collect {
+                binding.etUserName.setText(it.name)
+                }
+            }
+        }
+    }
+
+    private fun setListeners() {
+        binding.buttonEnter.setOnClickListener {
+            validateName(
+                binding.etUserName.text.toString()
+            )
+            val action= LoginFragmentDirections.actionLoginFragmentToViewPagerFragment()
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun validateName(name: String) {
+        if(name.isBlank())
+            Snackbar.make(requireView(),getString(R.string.no_name),Snackbar.LENGTH_SHORT).show()
+        else
+            loginVM.saveSettings(name)
+    }
 }

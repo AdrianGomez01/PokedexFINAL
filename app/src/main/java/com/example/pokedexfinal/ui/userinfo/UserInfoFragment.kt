@@ -6,17 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentUserInfoBinding
+import com.example.pokedexfinal.ui.login.LoginVM
+import kotlinx.coroutines.launch
 
 class UserInfoFragment : Fragment() {
-    private var _binding: FragmentUserInfoBinding? = null
-    private val binding
-        get() = _binding!!
 
+    private lateinit var binding: FragmentUserInfoBinding
 
-    private lateinit var userName: String
+    private val loginVM: LoginVM by viewModels<LoginVM> { LoginVM.Factory }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +34,35 @@ class UserInfoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentUserInfoBinding.inflate(layoutInflater, container, false)
+        binding = FragmentUserInfoBinding.inflate(layoutInflater, container, false)
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.HintUsuario)
 
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        userName = sharedViewModel.getUserName()
-
-        binding.tvUserName.text = userName
+        setListeners()
 
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setCollectors()
+
+    }
+
+    private fun setCollectors() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                loginVM.uiState.collect {
+                    binding.tvUserName.text = it.name
+                }
+            }
+        }
+    }
+
+
+    private fun setListeners() {
+
+    }
+
 }
