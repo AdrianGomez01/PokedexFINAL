@@ -13,11 +13,6 @@ val Context.userDataStore by preferencesDataStore(name = UserPreferences.SETTING
 
 class AppContainer(context: Context) {
 
-    //Repositorio de pokemons
-    val pokemonsRepository: PokemonsRepository
-        get() {
-            return this.pokemonsRepository
-        }
 
     //Creación del servicio, usando la api.
     private val pokeApiService = PokeApiConfig.provideRetrofit().create(ApiService::class.java)
@@ -31,4 +26,6 @@ class AppContainer(context: Context) {
         UserPreferencesRepository(context.userDataStore)
     }
     val userPreferencesRepository get() = _userPreferencesRepository
+
+
 }

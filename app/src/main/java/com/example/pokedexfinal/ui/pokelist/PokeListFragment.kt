@@ -36,7 +36,7 @@ class PokeListFragment : Fragment() {
     private lateinit var pokeAdapter: PokeAdapter
 
     // Guarda el estado de la lista de pokemons
-    private var pokeListState : MutableList<Pokemon> = mutableListOf()
+    private var pokeListState: MutableList<Pokemon> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,18 +62,18 @@ class PokeListFragment : Fragment() {
 
     fun addFavPoke(pos: Int) {
 
-       /* if (sharedViewModel.getListaPokemonFavoritos().contains(pokemons.get(pos))) {
-            showSnackbar("Ya has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
-        } else {
-            showSnackbar("Has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
-        }
+        /* if (sharedViewModel.getListaPokemonFavoritos().contains(pokemons.get(pos))) {
+             showSnackbar("Ya has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
+         } else {
+             showSnackbar("Has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
+         }
 
-        sharedViewModel.addFavourite(pokemons.get(pos).name)*/
+         sharedViewModel.addFavourite(pokemons.get(pos).name)*/
     }
 
     private fun selectPoke(pokeId: String) {
         //TODO - Por que me pide que retire el argumento
-        val action= PokeListFragmentDirections.actionPokeListFragmentToPokeDetailsFragment(pokeId)
+        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeDetailsFragment()
         findNavController().navigate(action)
     }
 
@@ -91,13 +91,15 @@ class PokeListFragment : Fragment() {
         pokeAdapter = PokeAdapter(
             _pokeList = mutableListOf(),
             onClickAdd = { pos -> addFavPoke(pos) },
-            onClickRoot = {  pokeId -> selectPoke(pokeId.toString())}
+            onClickRoot = { pokeId -> selectPoke(pokeId.toString()) }
         )
         binding.rvPokemons.adapter = pokeAdapter
-        if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-            binding.rvPokemons.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+            binding.rvPokemons.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         else {
-            binding.rvPokemons.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+            binding.rvPokemons.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
     }
 
@@ -106,11 +108,11 @@ class PokeListFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokeListVM.uiState.collect { pokeState ->
-                    if(!pokeState.isLoading) {
+                    if (!pokeState.isLoading) {
                         binding.pbLoading.isVisible = false
                         pokeAdapter.setPokeList(pokeState.pokeList)
                         pokeAdapter.notifyDataSetChanged()
-                    }else {
+                    } else {
                         binding.pbLoading.isVisible = true
                     }
 

@@ -52,7 +52,7 @@ class FavPokeDetailsVM(
                 val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
 
                 return FavPokeDetailsVM(
-                    (application as MyPokedex).appContainer.pokemonsRepository
+                    (application as MyPokedex).appContainer.pokemonRepository
                 ) as T
             }
         }

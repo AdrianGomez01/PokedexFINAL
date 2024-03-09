@@ -24,7 +24,6 @@ class LoginFragment : Fragment() {
     private val loginVM : LoginVM by viewModels<LoginVM> { LoginVM.Factory }
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
