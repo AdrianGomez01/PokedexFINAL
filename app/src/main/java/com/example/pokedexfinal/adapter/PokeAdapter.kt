@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.databinding.PokemonItemBinding
@@ -29,14 +30,11 @@ class PokeAdapter(
             binding.tvName.text = pokemon.name
             binding.tvType1.text = pokemon.type1
             binding.tvType2.text = pokemon.type2
-            val context = itemView.context
-            binding.ivPhoto.setImageResource(
-                context.resources.getIdentifier(
-                    pokemon.photo,
-                    DRAWABLE,
-                    context.packageName
-                )
-            )
+
+            val context = binding.ivPhoto.context
+
+            Glide.with(context).load(pokemon.photo).circleCrop().into(binding.ivPhoto)
+
 
             binding.root.setOnClickListener {
                 onClickRoot(adapterPosition)
