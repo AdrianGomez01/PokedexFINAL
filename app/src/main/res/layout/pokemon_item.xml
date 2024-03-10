@@ -23,60 +23,14 @@
         style="@style/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
         app:layout_constraintEnd_toStartOf="@+id/ivFavPoke"
-        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Absol" />
-
-    <TextView
-        android:id="@+id/tvTip1"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/type1"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/tvTip2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-    <TextView
-        android:id="@+id/tvTip2"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/type2"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/ivFavPoke"
-        app:layout_constraintStart_toEndOf="@+id/tvTip1"
-        app:layout_constraintTop_toTopOf="@+id/tvTip1" />
-
-    <TextView
-        android:id="@+id/tvType1"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/tvTip1"
-        app:layout_constraintStart_toStartOf="@+id/tvTip1"
-        app:layout_constraintTop_toBottomOf="@+id/tvTip1"
-        tools:text="none" />
-
-    <TextView
-        android:id="@+id/tvType2"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/tvTip2"
-        app:layout_constraintStart_toStartOf="@+id/tvTip2"
-        app:layout_constraintTop_toBottomOf="@+id/tvTip2"
-        tools:text="none" />
+        app:layout_constraintStart_toEndOf="@+id/tvid"
+        app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+        tools:text="Absol" />
 
     <ImageView
         android:id="@+id/ivFavPoke"
@@ -87,4 +41,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivPhoto"
         app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <TextView
+        android:id="@+id/tvid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/id"
+        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintEnd_toStartOf="@+id/tvName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+        app:layout_constraintTop_toTopOf="@+id/tvName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

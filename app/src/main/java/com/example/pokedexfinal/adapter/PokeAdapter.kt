@@ -28,8 +28,8 @@ class PokeAdapter(
 
         fun bind(pokemon: Pokemon, onClickAdd: (Int) -> Unit, onClickRoot: (Int) -> Unit) {
             binding.tvName.text = pokemon.name
-            binding.tvType1.text = pokemon.type1
-            binding.tvType2.text = pokemon.type2
+            binding.tvid.text = pokemon.id.toString()
+
 
             val context = binding.ivPhoto.context
 
@@ -37,13 +37,13 @@ class PokeAdapter(
 
 
             binding.root.setOnClickListener {
-                onClickRoot(adapterPosition)
+                onClickRoot(pokemon.id)
                 Snackbar.make(it, "Has seleccionado a ${pokemon.name}.", Snackbar.LENGTH_SHORT)
                     .show()
             }
 
             binding.ivFavPoke.setOnClickListener {
-                onClickAdd(adapterPosition)
+                onClickAdd(pokemon.id)
             }
 
         }
@@ -63,6 +63,7 @@ class PokeAdapter(
         _pokeList = pokes.toMutableList()
     }
 
+    //TODO
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         holder.bind(_pokeList[position], onClickAdd, onClickRoot)
     }

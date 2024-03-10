@@ -33,7 +33,6 @@ class PokeDetailsFragment : Fragment() {
         get() = _binding!!
 
 
-    //TODO PREGUNTAR POR QUE NO PILLA EL ARGS (1)
     val args: PokeDetailsFragmentArgs by navArgs()
 
     private val pokeDetailsVM by viewModels<PokeDetailsVM> { PokeDetailsVM.Factory }
@@ -79,11 +78,11 @@ class PokeDetailsFragment : Fragment() {
                         binding.pbLoadingDetails.isVisible = false
                         pokeState.poke?.let {
                             binding.tvPokeNameDetails.text = it.name
-                            //binding.ivPhoto.setImageResource(requireContext().resources.getIdentifier("iron_man", DRAWABLE,requireContext().packageName))
                             Glide.with(requireContext()).load(it.photo).circleCrop().into(binding.ivPokeDetails)
                             binding.tvTipo1Det.text = it.type1
                             binding.tvTipo2Det.text = it.type2
-                            binding.tvDescriptionDetails.text = it.description
+                            binding.tvAltura.text = it.altura
+                            binding.tvPeso.text = it.peso
                         }
                     } else {
                         binding.pbLoadingDetails.isVisible = true

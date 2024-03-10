@@ -71,9 +71,8 @@ class PokeListFragment : Fragment() {
          sharedViewModel.addFavourite(pokemons.get(pos).name)*/
     }
 
-    private fun selectPoke(pokeId: String) {
-        //TODO - Por que me pide que retire el argumento
-        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeDetailsFragment()
+    private fun selectPoke(pokeId: Int) {
+        val action = PokeListFragmentDirections.actionPokeListFragmentToPokeDetailsFragment(pokeId)
         findNavController().navigate(action)
     }
 
@@ -91,7 +90,7 @@ class PokeListFragment : Fragment() {
         pokeAdapter = PokeAdapter(
             _pokeList = mutableListOf(),
             onClickAdd = { pos -> addFavPoke(pos) },
-            onClickRoot = { pokeId -> selectPoke(pokeId.toString()) }
+            onClickRoot = { pokeId -> selectPoke(pokeId) }
         )
         binding.rvPokemons.adapter = pokeAdapter
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)

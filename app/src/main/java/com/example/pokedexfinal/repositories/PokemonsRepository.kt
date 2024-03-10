@@ -24,7 +24,7 @@ class PokemonsRepository(
             }
             return Response.success(myPoke)
         } else
-            return Response.error(null,null)
+           return getRandPoke()
     }
 
     suspend fun getRandPoke() : Response<Pokemon> {

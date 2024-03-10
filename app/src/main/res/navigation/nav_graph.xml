@@ -64,8 +64,7 @@
         android:label="PokeDetailsFragment" >
         <argument
             android:name="idPoke"
-            app:argType="string"
-            android:defaultValue='""' />
+            app:argType="integer" />
         <action
             android:id="@+id/action_pokeDetailsFragment_to_pokeListFragment"
             app:destination="@id/pokeListFragment" />

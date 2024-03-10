@@ -27,17 +27,20 @@ data class PokeApiResponse(
     var spanishFlavorTextEntries: List<String> = emptyList()
 ) {
     fun toPokemon(): Pokemon {
+        var altura = height.toFloat()/10
+        var peso = weight.toFloat()/10
         var tipo2 = "None"
         if (types.size>1){
             tipo2 = types[1].type.name
         }
         return Pokemon(
-            id = id.toString(),
+            id = id,
             name = name,
             type1 = types[0].type.name,
             type2 = tipo2,
             photo = sprites.frontDefault.toString(),
-            description = gameIndices.toString(),
+            peso = "$peso kg",
+            altura = "$altura m",
         )
     }
 }

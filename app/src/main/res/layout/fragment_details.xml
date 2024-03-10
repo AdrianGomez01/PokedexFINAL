@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailItemFragment">
+    tools:context=".ui.pokedetails.PokeDetailsFragment">
 
     <ImageView
         android:id="@+id/ivPokeDetails"
@@ -87,24 +87,11 @@
         app:layout_constraintStart_toEndOf="@+id/tvTipo1Det"
         app:layout_constraintTop_toBottomOf="@+id/tvType2Details" />
 
-    <TextView
-        android:id="@+id/tvDescriptionDetails"
-        style="@style/text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTipo1Det" />
-
     <Button
         android:id="@+id/btnBack"
         style="@style/button"
-        android:layout_width="88dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -126,4 +113,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPesoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/peso"
+        app:layout_constraintBottom_toTopOf="@+id/tvAlturaText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipo1Det"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/tvAlturaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/altura"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPesoText" />
+
+    <TextView
+        android:id="@+id/tvPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/peso"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPesoText"
+        app:layout_constraintStart_toEndOf="@+id/tvPesoText"
+        app:layout_constraintTop_toTopOf="@+id/tvPesoText" />
+
+    <TextView
+        android:id="@+id/tvAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/altura"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAlturaText"
+        app:layout_constraintStart_toEndOf="@+id/tvAlturaText"
+        app:layout_constraintTop_toTopOf="@+id/tvAlturaText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

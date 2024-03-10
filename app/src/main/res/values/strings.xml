@@ -25,4 +25,8 @@
     <string name="welcome">Bienvenido!</string>
     <string name="hintWelcome">¡En esta aplicación podrás consultar Pokemon y guardar tus favoritos!</string>
     <string name="no_name" translatable="false">Introduzca un nombre de usuario válido</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="id">id</string>
+
 </resources>
