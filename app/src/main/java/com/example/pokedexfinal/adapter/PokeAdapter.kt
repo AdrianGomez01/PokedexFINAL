@@ -33,7 +33,7 @@ class PokeAdapter(
 
             val context = binding.ivPhoto.context
 
-            Glide.with(context).load(pokemon.photo).circleCrop().into(binding.ivPhoto)
+            Glide.with(context).load(pokemon.photo).into(binding.ivPhoto)
 
 
             binding.root.setOnClickListener {
