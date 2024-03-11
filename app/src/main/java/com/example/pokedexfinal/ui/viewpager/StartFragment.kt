@@ -34,6 +34,7 @@ class StartFragment : Fragment() {
     }
 
     private fun setListeners() {
+
         binding.btnStart.setOnClickListener {
 
             //Snackbar.make(requireView(),binding.cbSkipWelcome.isChecked.toString(),Snackbar.LENGTH_SHORT).show()

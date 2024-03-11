@@ -66,6 +66,7 @@ class SettingsFragment : Fragment() {
             skipWelcome = binding.cbSkipWelcomeSettings.isChecked
             validateName(binding.etUserName.text.toString())
             Snackbar.make(requireView(),getString(R.string.settings_saves),Snackbar.LENGTH_SHORT).show()
+            findNavController().popBackStack()
         }
     }
 
