@@ -54,7 +54,11 @@
     <fragment
         android:id="@+id/userInfoFragment"
         android:name="com.example.pokedexfinal.ui.userinfo.UserInfoFragment"
-        android:label="UserInfoFragment" />
+        android:label="UserInfoFragment" >
+        <action
+            android:id="@+id/action_userInfoFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pokeListFragment"
         android:name="com.example.pokedexfinal.ui.pokelist.PokeListFragment"
@@ -91,4 +95,9 @@
             app:argType="string"
             android:defaultValue='""' />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.pokedexfinal.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

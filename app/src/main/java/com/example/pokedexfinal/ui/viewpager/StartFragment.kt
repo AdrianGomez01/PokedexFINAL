@@ -47,13 +47,14 @@ class StartFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 startVM.uiState.collect {
+
                     if (it.savedSkipWelcome) {
-                        Snackbar.make(requireView(),it.skipWelcome.toString(),Snackbar.LENGTH_SHORT).show()
+                        //Snackbar.make(requireView(),it.skipWelcome.toString(),Snackbar.LENGTH_SHORT).show()
                         val action = ViewPagerFragmentDirections.actionViewPagerFragmentToMenuFragment()
                         findNavController().navigate(action)
                     }
                     if (it.error){
-                        Snackbar.make(requireView(),"Error en el guardado de datos",Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(requireView(),getString(R.string.error),Snackbar.LENGTH_SHORT).show()
                     }
                 }
             }

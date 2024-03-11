@@ -36,10 +36,19 @@ class UserPreferencesRepository(
         }
     }
 
-   /* suspend fun saveSettingsWelcome(checked: Boolean) {
+    suspend fun saveName(name: String) {
+        //edita el DataStore.
+        userDataStore.edit { userPreferences ->
+            userPreferences[stringPreferencesKey(UserPreferences.USER_NAME)] = name
+        }
+    }
+
+
+    suspend fun saveSettingsWelcome(checked: Boolean) {
         //edita el DataStore.
         userDataStore.edit { userPreferences ->
             userPreferences[booleanPreferencesKey(UserPreferences.SKIP)] = checked
         }
-    }*/
+    }
+
 }

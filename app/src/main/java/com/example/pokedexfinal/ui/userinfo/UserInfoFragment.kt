@@ -10,9 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentUserInfoBinding
 import com.example.pokedexfinal.ui.login.LoginVM
+import com.example.pokedexfinal.ui.viewpager.ViewPagerFragmentDirections
 import kotlinx.coroutines.launch
 
 class UserInfoFragment : Fragment() {
@@ -62,7 +64,10 @@ class UserInfoFragment : Fragment() {
 
 
     private fun setListeners() {
-
+        binding.fabSettings.setOnClickListener {
+            val action = UserInfoFragmentDirections.actionUserInfoFragmentToSettingsFragment()
+            findNavController().navigate(action)
+        }
     }
 
 }

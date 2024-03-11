@@ -40,7 +40,6 @@ class LoginFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
-        setListeners()
 
         return binding.root
     }
@@ -49,6 +48,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setCollectors()
+        setListeners()
 
     }
 
@@ -64,13 +64,12 @@ class LoginFragment : Fragment() {
     }
 
     private fun setListeners() {
-
         binding.buttonEnter.setOnClickListener {
             validateName(
                 binding.etUserName.text.toString()
             )
 
-            Snackbar.make(requireView(),loginVM.uiState.value.skipWelcome.toString(),Snackbar.LENGTH_SHORT).show()
+            //Snackbar.make(requireView(), loginVM.uiState.value.name,Snackbar.LENGTH_SHORT).show()
             if (skipWelcome) {
                 val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment()
                 findNavController().navigate(action)
@@ -86,6 +85,6 @@ class LoginFragment : Fragment() {
         if (name.isBlank())
             Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT).show()
         else
-            loginVM.saveSettings(name, skipWelcome)
+            loginVM.saveSettings(name)
     }
 }

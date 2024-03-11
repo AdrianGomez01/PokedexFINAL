@@ -23,8 +23,6 @@ class LoginVM(
     )
     val uiState: StateFlow<UserPreferences> = _uiState.asStateFlow()
 
-    public val state
-        get() = uiState
 
     init {
         //al iniciar toma el estado desde el DataStore.
@@ -42,11 +40,11 @@ class LoginVM(
         }
     }
 
-    fun saveSettings(name: String, checked :Boolean) {
+    fun saveSettings(name: String) {
         Log.d("datastore","nombre: $name")
         viewModelScope.launch {
             //edita el DataStore.
-            userPreferencesRepository.saveSettings(name,checked)
+            userPreferencesRepository.saveName(name)
             updateState()
         }
     }
