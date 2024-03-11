@@ -28,5 +28,6 @@
     <string name="peso">Peso</string>
     <string name="altura">Altura</string>
     <string name="id">id</string>
+    <string name="no_volver_a_mostrar">No volver a mostrar</string>
 
 </resources>
