@@ -21,8 +21,9 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
 
-    private val loginVM : LoginVM by viewModels<LoginVM> { LoginVM.Factory }
+    private val loginVM: LoginVM by viewModels<LoginVM> { LoginVM.Factory }
 
+    var skipWelcome = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,26 +56,36 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 loginVM.uiState.collect {
-                binding.etUserName.setText(it.name)
+                    binding.etUserName.setText(it.name)
+                    skipWelcome = it.skipWelcome
                 }
             }
         }
     }
 
     private fun setListeners() {
+
         binding.buttonEnter.setOnClickListener {
             validateName(
                 binding.etUserName.text.toString()
             )
-            val action= LoginFragmentDirections.actionLoginFragmentToViewPagerFragment()
-            findNavController().navigate(action)
+
+            Snackbar.make(requireView(),loginVM.uiState.value.skipWelcome.toString(),Snackbar.LENGTH_SHORT).show()
+            if (skipWelcome) {
+                val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment()
+                findNavController().navigate(action)
+            } else {
+                val action = LoginFragmentDirections.actionLoginFragmentToViewPagerFragment()
+                findNavController().navigate(action)
+            }
+
         }
     }
 
     private fun validateName(name: String) {
-        if(name.isBlank())
-            Snackbar.make(requireView(),getString(R.string.no_name),Snackbar.LENGTH_SHORT).show()
+        if (name.isBlank())
+            Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT).show()
         else
-            loginVM.saveSettings(name)
+            loginVM.saveSettings(name, skipWelcome)
     }
 }

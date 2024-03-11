@@ -23,13 +23,12 @@
         style="@style/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
+        app:layout_constraintBottom_toBottomOf="@+id/ivFavPoke"
         app:layout_constraintEnd_toStartOf="@+id/ivFavPoke"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvid"
-        app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+        app:layout_constraintTop_toTopOf="@+id/ivFavPoke"
         tools:text="Absol" />
 
     <ImageView
@@ -39,6 +38,8 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvName"
         app:layout_constraintTop_toTopOf="@+id/ivPhoto"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
@@ -46,10 +47,11 @@
         android:id="@+id/tvid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="@string/id"
-        app:layout_constraintBottom_toBottomOf="@+id/tvName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvName"
         app:layout_constraintEnd_toStartOf="@+id/tvName"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivPhoto"
-        app:layout_constraintTop_toTopOf="@+id/tvName" />
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/ivPhoto" />
 </androidx.constraintlayout.widget.ConstraintLayout>

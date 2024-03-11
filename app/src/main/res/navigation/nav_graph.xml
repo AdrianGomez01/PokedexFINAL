@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_loginFragment_to_viewPagerFragment"
             app:destination="@id/viewPagerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -19,7 +22,9 @@
         android:label="ViewPagerFragment" >
         <action
             android:id="@+id/action_viewPagerFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
