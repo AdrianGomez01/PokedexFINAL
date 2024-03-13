@@ -19,6 +19,7 @@ import com.example.pokedexfinal.databinding.FragmentComentsBinding
 import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
 import com.example.pokedexfinal.datamodel.UserComents
 import com.example.pokedexfinal.datamodel.UserPreferences
+import com.example.pokedexfinal.ui.login.LoginVM
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -33,6 +34,8 @@ class ComentListFragment : Fragment() {
     val args: ComentListFragmentArgs by navArgs()
 
     private val comentsVM by viewModels<ComentsVM> { ComentsVM.Factory }
+    private val loginVM: LoginVM by viewModels<LoginVM> { LoginVM.Factory }
+
 
     private lateinit var comentsAdapter: ComentsAdapter
 
@@ -105,7 +108,7 @@ class ComentListFragment : Fragment() {
         binding.btnGuardarComent.setOnClickListener{
 
             val comentario = UserComents(
-                autor = "", //TODO insertar el nombre del usuario
+                autor = loginVM.uiState.value.name,
                 pokeId = args.idPoke,
                 texto = binding.etIntroComent.text.toString()
             )
