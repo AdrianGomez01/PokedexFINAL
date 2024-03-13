@@ -12,12 +12,16 @@
     <TextView
         android:id="@+id/textViewCreditInfo"
         style="@style/text"
+        android:layout_marginTop="32dp"
         android:fontFamily="monospace"
         android:text="@string/appInfo"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonContact"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside"
         tools:ignore="VisualLintLongText" />
 
     <Button
@@ -30,10 +34,27 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/red"
         android:text="@string/contact"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCreditInfo"
         tools:ignore="VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonContact" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

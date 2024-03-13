@@ -20,7 +20,7 @@
     <string name="details">Detalles</string>
     <string name="pokemon">Pokémon</string>
     <string name="fav_details">Detalles de tus Favoritos</string>
-    <string name="future_user_info">En versiones posteriores de la aplicación podrás consultar aquí tu información personal</string>
+    <string name="future_user_info">BIENVENIDO! En esta Pokedex podrás guardar tus pokemon favoritos y opinar sobre ellos, ¡Además de ver tambien las opiniones de los demás usuarios! Si necesitas modificar tus preferencias, haz click en el botón flotante situado en la parte inferior derecha de la pantalla =)</string>
     <string name="start">Comenzar</string>
     <string name="welcome">Bienvenido!</string>
     <string name="hintWelcome">¡En esta aplicación podrás consultar Pokemon y guardar tus favoritos!</string>

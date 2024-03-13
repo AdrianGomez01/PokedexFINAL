@@ -68,6 +68,10 @@ class UserInfoFragment : Fragment() {
             val action = UserInfoFragmentDirections.actionUserInfoFragmentToSettingsFragment()
             findNavController().navigate(action)
         }
+
+        binding.button2.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }

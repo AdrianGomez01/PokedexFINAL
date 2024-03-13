@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.MainActivity
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentCreditBinding
+import com.example.pokedexfinal.databinding.FragmentMenuBinding
 
 
 class CreditFragment : Fragment() {
@@ -30,11 +32,12 @@ class CreditFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentCreditBinding.inflate(layoutInflater, container, false)
 
         //Cambio el título del toolbar al de la página actual
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.credits)
 
-        return inflater.inflate(R.layout.fragment_credit, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,11 +45,15 @@ class CreditFragment : Fragment() {
 
         // Obtengo una referencia al MainActivity y vinculo el botón a una constante
         val mainActivity = activity as MainActivity
-        val btnLlamarFuncion = view.findViewById<Button>(R.id.buttonContact)
+
 
         // Configuro el clic del botón para llamar a la función en MainActivity
-        btnLlamarFuncion.setOnClickListener {
+        binding.buttonContact.setOnClickListener {
             mainActivity.createMail()
+        }
+
+        binding.button.setOnClickListener{
+            findNavController().popBackStack()
         }
     }
 
