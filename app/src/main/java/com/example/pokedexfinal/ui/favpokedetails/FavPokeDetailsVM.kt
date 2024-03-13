@@ -24,9 +24,9 @@ class FavPokeDetailsVM(
     init {
     }
 
-    fun setPoke(idPoke: String) {
+    fun setPoke(idPoke: Int) {
         viewModelScope.launch {
-            val pokeResp = pokemonsRepository.getPoke(idPoke.toInt())
+            val pokeResp = pokemonsRepository.getPoke(idPoke)
             if(pokeResp.isSuccessful) {
                 val poke = pokeResp.body()
                 _uiState.update {

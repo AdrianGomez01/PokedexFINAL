@@ -32,4 +32,11 @@
     <string name="error">Error en el guardado de datos</string>
     <string name="save">Guardar</string>
     <string name="settings_saves">Opciones guardadas</string>
+    <string name="tus_pokemon_favoritos">Tus Pokemon favoritos</string>
+    <string name="lista_de_pokemons">Lista de Pokemons</string>
+    <string name="volver">Volver</string>
+    <string name="delete">ELIMINAR</string>
+    <string name="support_confirm_delete">¿Está seguro que desa eliminarlo?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
 </resources>

@@ -51,9 +51,6 @@ class PokeDetailsFragment : Fragment() {
     ): View? {
         _binding = FragmentDetailsBinding.inflate(layoutInflater, container, false)
 
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
-
-
         pokeDetailsVM.setPoke(args.idPoke)
 
         return binding.root

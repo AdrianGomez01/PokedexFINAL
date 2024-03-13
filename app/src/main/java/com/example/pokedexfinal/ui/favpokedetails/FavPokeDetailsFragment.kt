@@ -15,13 +15,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
-import com.example.pokedexfinal.api.Pokemon
-import com.example.pokedexfinal.databinding.FragmentDetailsBinding
 import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
-import com.example.pokedexfinal.databinding.FragmentFavPokemonListBinding
-import com.example.pokedexfinal.databinding.FragmentPokemonListBinding
-import com.example.pokedexfinal.ui.pokedetails.PokeDetailsFragmentArgs
-import com.example.pokedexfinal.ui.pokedetails.PokeDetailsVM
+import com.example.pokedexfinal.ui.coments.ComentListFragment
 import kotlinx.coroutines.launch
 
 class FavPokeDetailsFragment : Fragment() {
@@ -54,15 +49,7 @@ class FavPokeDetailsFragment : Fragment() {
     ): View? {
         _binding = FragmentFavDetailsBinding.inflate(layoutInflater, container, false)
 
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
-
-
         favPokeDetailsVM.setPoke(args.idPoke)
-
-
-       // sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        //pokemon = sharedViewModel.getPokemon()
-
 
         return binding.root
     }
@@ -72,14 +59,32 @@ class FavPokeDetailsFragment : Fragment() {
 
         setCollectors()
 
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
+        binding.fabAdd.setOnClickListener{
+           // ComentListFragment.addComent(coment)
+        }
     }
 
     private fun setCollectors() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 favPokeDetailsVM.uiState.collect { pokeState ->
-
+                    if(!pokeState.isLoading) {
+                        binding.pbLoadingDetails.isVisible = false
+                        pokeState.poke?.let {
+                            binding.tvFavPokeNameDetails.text = it.name
+                            Glide.with(requireContext()).load(it.photo).into(binding.ivFavPokeDetails)
+                            binding.tvFavTipo1Det.text = it.type1
+                            binding.tvFavTipo2Det.text = it.type2
+                            binding.tvAltura.text = it.altura
+                            binding.tvPeso.text = it.peso
+                        }
+                    } else {
+                        binding.pbLoadingDetails.isVisible = true
+                    }
 
                 }
             }

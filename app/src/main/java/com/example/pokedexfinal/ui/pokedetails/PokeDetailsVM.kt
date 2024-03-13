@@ -21,8 +21,6 @@ class PokeDetailsVM(
     )
     val uiState : StateFlow<PokeDetailsUiState> = _uiState.asStateFlow()
 
-    init {
-    }
 
     fun setPoke(idPoke: Int) {
         viewModelScope.launch {

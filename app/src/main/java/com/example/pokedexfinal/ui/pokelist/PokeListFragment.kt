@@ -22,6 +22,7 @@ import com.example.pokedexfinal.adapter.PokeAdapter
 import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.databinding.FragmentPokemonListBinding
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -50,25 +51,21 @@ class PokeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //Cambio el título del toolbar al de la página actual
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.pokemon_list)
-
         // Inflate the layout for this fragment
         _binding = FragmentPokemonListBinding.inflate(inflater, container, false)
-
 
         return binding.root
     }
 
-    fun addFavPoke(pos: Int) {
+    fun addFavPoke(poke: Pokemon) {
+        pokeListVM.saveFavPoke(poke)
+        //TODO pienso que porque tarda en acualizarse el uiState salta al segundo Click
+        if (pokeListVM.uiState.value.isFav){
+            Snackbar.make(requireView(), "${poke.name} Ya pertenece a tus favoritos.", Snackbar.LENGTH_SHORT).show()
+        } else{
+            Snackbar.make(requireView(), "Has añadido a ${poke.name} a tus favoritos.", Snackbar.LENGTH_SHORT).show()
+        }
 
-        /* if (sharedViewModel.getListaPokemonFavoritos().contains(pokemons.get(pos))) {
-             showSnackbar("Ya has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
-         } else {
-             showSnackbar("Has añadido a " + pokemons.get(pos).name + " a tus Pokemon favoritos.")
-         }
-
-         sharedViewModel.addFavourite(pokemons.get(pos).name)*/
     }
 
     private fun selectPoke(pokeId: Int) {
@@ -84,12 +81,16 @@ class PokeListFragment : Fragment() {
         initRecView()
 
         setCollectors()
+
+        binding.btnBack.setOnClickListener{
+            findNavController().popBackStack()
+        }
     }
 
     private fun initRecView() {
         pokeAdapter = PokeAdapter(
             _pokeList = mutableListOf(),
-            onClickAdd = { pos -> addFavPoke(pos) },
+            onClickAdd = { pokemon -> addFavPoke(pokemon) },
             onClickRoot = { pokeId -> selectPoke(pokeId) }
         )
         binding.rvPokemons.adapter = pokeAdapter
@@ -120,7 +121,4 @@ class PokeListFragment : Fragment() {
         }
     }
 
-    private fun showSnackbar(message: String) {
-        Snackbar.make(requireView(), message, Snackbar.LENGTH_SHORT).show()
-    }
 }

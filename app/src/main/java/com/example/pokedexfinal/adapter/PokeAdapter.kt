@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class PokeAdapter(
     private var _pokeList: MutableList<Pokemon>,
-    private val onClickAdd: (Int) -> Unit,
+    private val onClickAdd: (Pokemon) -> Unit,
     private val onClickRoot: (Int) -> Unit,
 ) : RecyclerView.Adapter<PokeAdapter.PokemonViewHolder>() {
 
@@ -26,24 +26,21 @@ class PokeAdapter(
 
         private val binding = PokemonItemBinding.bind(view)
 
-        fun bind(pokemon: Pokemon, onClickAdd: (Int) -> Unit, onClickRoot: (Int) -> Unit) {
+        fun bind(pokemon: Pokemon, onClickAdd: (Pokemon) -> Unit, onClickRoot: (Int) -> Unit) {
             binding.tvName.text = pokemon.name
             binding.tvid.text = pokemon.id.toString()
 
-
             val context = binding.ivPhoto.context
-
             Glide.with(context).load(pokemon.photo).into(binding.ivPhoto)
-
 
             binding.root.setOnClickListener {
                 onClickRoot(pokemon.id)
-                Snackbar.make(it, "Has seleccionado a ${pokemon.name}.", Snackbar.LENGTH_SHORT)
-                    .show()
+                //Snackbar.make(it, "Has seleccionado a ${pokemon.name}.", Snackbar.LENGTH_SHORT).show()
             }
 
             binding.ivFavPoke.setOnClickListener {
-                onClickAdd(pokemon.id)
+                onClickAdd(pokemon)
+                //Snackbar.make(it, "Has añadido a ${pokemon.name} a tus favoritos.", Snackbar.LENGTH_SHORT).show()
             }
 
         }

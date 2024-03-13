@@ -4,5 +4,6 @@ import com.example.pokedexfinal.api.Pokemon
 
 data class PokeListUiState(
     val isLoading : Boolean = true,
-    val pokeList: List<Pokemon> = emptyList()
+    val pokeList: List<Pokemon> = emptyList(),
+    var isFav : Boolean = false
 )

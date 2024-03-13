@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.pokedexfinal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

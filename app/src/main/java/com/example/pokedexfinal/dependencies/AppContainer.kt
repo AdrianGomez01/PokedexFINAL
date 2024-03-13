@@ -5,6 +5,9 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.pokedexfinal.api.ApiService
 import com.example.pokedexfinal.api.PokeApiConfig
 import com.example.pokedexfinal.datamodel.UserPreferences
+import com.example.pokedexfinal.datasource.LocalDatabase
+import com.example.pokedexfinal.repositories.ComentsRepository
+import com.example.pokedexfinal.repositories.FavPokemonsRepository
 import com.example.pokedexfinal.repositories.PokemonsRepository
 import com.example.pokedexfinal.repositories.UserPreferencesRepository
 
@@ -27,5 +30,18 @@ class AppContainer(context: Context) {
     }
     val userPreferencesRepository get() = _userPreferencesRepository
 
+
+    //Repositorio de Pokemon Favoritos
+    private val _favPokemonsRepository : FavPokemonsRepository by lazy {
+        FavPokemonsRepository(LocalDatabase.getDatabase(context).pokesDao())
+    }
+    val favPokemonsRepository get() = _favPokemonsRepository
+
+
+    //Repositorio de Comentarios
+    private val _comentsRepository : ComentsRepository by lazy {
+        ComentsRepository(LocalDatabase.getDatabase(context).comentsDao())
+    }
+    val comentsRepository get() = _comentsRepository
 
 }

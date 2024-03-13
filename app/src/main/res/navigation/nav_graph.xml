@@ -92,8 +92,7 @@
         android:label="FavPokeDetailsFragment" >
         <argument
             android:name="idPoke"
-            app:argType="string"
-            android:defaultValue='""' />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
