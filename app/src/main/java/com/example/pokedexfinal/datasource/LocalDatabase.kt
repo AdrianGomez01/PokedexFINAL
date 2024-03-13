@@ -12,7 +12,6 @@ import com.example.pokedexfinal.api.Pokemon
     exportSchema = false)
 abstract class LocalDatabase : RoomDatabase() {
     abstract fun pokesDao(): PokesDao
-    abstract fun comentsDao(): ComentsDao
 
     companion object {
         @Volatile

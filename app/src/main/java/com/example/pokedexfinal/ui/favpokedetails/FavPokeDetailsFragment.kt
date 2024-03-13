@@ -16,7 +16,6 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
-import com.example.pokedexfinal.ui.coments.ComentListFragment
 import kotlinx.coroutines.launch
 
 class FavPokeDetailsFragment : Fragment() {
