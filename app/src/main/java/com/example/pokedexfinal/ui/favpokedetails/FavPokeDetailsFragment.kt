@@ -48,6 +48,7 @@ class FavPokeDetailsFragment : Fragment() {
 
         favPokeDetailsVM.setPoke(args.idPoke)
 
+
         return binding.root
     }
 

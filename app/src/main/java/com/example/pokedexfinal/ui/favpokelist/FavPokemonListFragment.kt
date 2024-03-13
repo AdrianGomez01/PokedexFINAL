@@ -18,6 +18,7 @@ import com.example.pokedexfinal.R
 import com.example.pokedexfinal.adapter.FavPokeAdapter
 import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.databinding.FragmentFavPokemonListBinding
+import com.example.pokedexfinal.ui.coments.ComentsVM
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -30,6 +31,7 @@ class FavPokemonListFragment : Fragment() {
         get() = _binding!!
 
     private val favPokeListVM by viewModels<FavPokemonListVM> { FavPokemonListVM.Factory }
+    private val comentsVM by viewModels<ComentsVM> { ComentsVM.Factory }
 
     private lateinit var favPokemonAdapter: FavPokeAdapter
 
@@ -69,6 +71,7 @@ class FavPokemonListFragment : Fragment() {
     }
 
     private fun selectPoke(pokeId: Int) {
+        comentsVM.uiState.value.pokeId = pokeId
         val action = FavPokemonListFragmentDirections.actionFavPokemonListFragmentToFavPokeDetailsFragment2(pokeId)
         findNavController().navigate(action)
     }

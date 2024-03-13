@@ -1,10 +1,12 @@
 package com.example.pokedexfinal.ui.coments
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,6 +20,7 @@ import com.example.pokedexfinal.adapter.ComentsAdapter
 import com.example.pokedexfinal.databinding.FragmentComentsBinding
 import com.example.pokedexfinal.datamodel.UserComents
 import com.example.pokedexfinal.ui.login.LoginVM
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 
@@ -51,6 +54,10 @@ class ComentListFragment : Fragment() {
     ): View? {
         _binding = FragmentComentsBinding.inflate(inflater, container, false)
 
+        setListeners()
+
+        comentsVM.getComents(args.idPoke)
+
         return binding.root
     }
 
@@ -61,9 +68,6 @@ class ComentListFragment : Fragment() {
         initRecView()
 
         setCollectors()
-
-        setListeners()
-
 
     }
 
@@ -107,13 +111,25 @@ class ComentListFragment : Fragment() {
 
         binding.btnGuardarComent.setOnClickListener{
 
-            val comentario = UserComents(
-                autor = loginVM.uiState.value.name,
-                pokeId = args.idPoke,
-                texto = binding.etIntroComent.text.toString()
-            )
+            if (binding.etIntroComent.text.isBlank()){
+                Snackbar.make(requireView(),"Debe escribir algo en el comentario",Snackbar.LENGTH_SHORT).show()
+            } else {
+                val comentario = UserComents(
+                    autor = loginVM.uiState.value.name,
+                    pokeId = args.idPoke,
+                    texto = binding.etIntroComent.text.toString()
+                )
+                comentsVM.addComent(comentario)
 
-            comentsVM.addComent(comentario)
+                // Ocultar el teclado después de añadir el comentario
+                val inputMethodManager =
+                    requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
+
+                Snackbar.make(requireView(),"Se ha añadido tu comentario",Snackbar.LENGTH_SHORT).show()
+
+            }
+
 
         }
     }

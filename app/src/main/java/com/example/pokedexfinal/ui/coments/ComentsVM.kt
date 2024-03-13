@@ -22,14 +22,15 @@ class ComentsVM(
     val uiState: StateFlow<ComentsUiState> = _uiState.asStateFlow()
 
 
+
     init {
-        getComents()
+
     }
 
-    fun getComents() {
+    fun getComents( id : Int) {
         viewModelScope.launch {
             //TODO Tiene que ser aqui donde me falla al filtrar los coment por pokeID
-           val comentList = comentsRepository.getPokeComents(uiState.value.pokeId)
+           val comentList = comentsRepository.getPokeComents(id)
             //val comentList = comentsRepository.getAll()
             _uiState.update { currentSate ->
                 currentSate.copy(
@@ -51,7 +52,7 @@ class ComentsVM(
                     text = coment.texto,
                 )
             }
-            getComents()
+            getComents(coment.pokeId)
         }
 
     }

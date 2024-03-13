@@ -6,6 +6,6 @@ data class ComentsUiState(
     val isLoading : Boolean = true,
     val comentList: List<UserComents> = emptyList(),
     val autorName : String = "",
-    val pokeId : Int = 0,
+    var pokeId : Int = 0,
     val text : String = "",
 )
