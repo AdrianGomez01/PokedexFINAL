@@ -59,11 +59,24 @@ class PokeListFragment : Fragment() {
 
     fun addFavPoke(poke: Pokemon) {
         pokeListVM.saveFavPoke(poke)
-        //TODO pienso que porque tarda en acualizarse el uiState salta al segundo Click
-        if (pokeListVM.uiState.value.isFav){
-            Snackbar.make(requireView(), "${poke.name} Ya pertenece a tus favoritos.", Snackbar.LENGTH_SHORT).show()
-        } else{
-            Snackbar.make(requireView(), "Has añadido a ${poke.name} a tus favoritos.", Snackbar.LENGTH_SHORT).show()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                pokeListVM.uiState.collect { pokeState ->
+                    if (pokeListVM.uiState.value.isFav) {
+                        Snackbar.make(
+                            requireView(),
+                            "${poke.name} Ya pertenece a tus favoritos.",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Snackbar.make(
+                            requireView(),
+                            "Has añadido a ${poke.name} a tus favoritos.",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
         }
 
     }
@@ -82,7 +95,7 @@ class PokeListFragment : Fragment() {
 
         setCollectors()
 
-        binding.btnBack.setOnClickListener{
+        binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
     }

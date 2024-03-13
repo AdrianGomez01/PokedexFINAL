@@ -39,4 +39,6 @@
     <string name="support_confirm_delete">¿Está seguro que desa eliminarlo?</string>
     <string name="cancel">Cancelar</string>
     <string name="accept">Aceptar</string>
+    <string name="comentarios_de_los_usuarios">Comentarios de los Usuarios</string>
+    <string name="a_adir_un_comentario">Añadir un comentario...</string>
 </resources>

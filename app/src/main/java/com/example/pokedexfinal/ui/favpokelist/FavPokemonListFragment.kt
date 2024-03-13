@@ -52,12 +52,6 @@ class FavPokemonListFragment : Fragment() {
         return binding.root
     }
 
-    fun delFavPoke(poke: Pokemon) {
-        favPokeListVM.delFavPoke(poke)
-
-
-        Snackbar.make(requireView(), "Has eliminado a ${poke.name} de tus favoritos.", Snackbar.LENGTH_SHORT).show()
-    }
 
     private fun confirmDeletePoke(poke: Pokemon) {
         MaterialAlertDialogBuilder(requireContext())
@@ -89,6 +83,8 @@ class FavPokemonListFragment : Fragment() {
         binding.btnBack.setOnClickListener{
             findNavController().popBackStack()
         }
+
+
     }
 
     private fun initRecView() {

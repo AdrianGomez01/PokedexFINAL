@@ -49,12 +49,12 @@ class PokeListVM(
         viewModelScope.launch {
             val isFav = isFaved(poke)
             if (!isFav) {
-                favPokemonsRepository.insertPoke(poke)
                 _uiState.update {
                     it.copy(
                         isFav = false
                     )
                 }
+                favPokemonsRepository.insertPoke(poke)
             } else {
                 _uiState.update {
                     it.copy(

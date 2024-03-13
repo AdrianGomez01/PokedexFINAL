@@ -93,10 +93,22 @@
         <argument
             android:name="idPoke"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_favPokeDetailsFragment2_to_comentListFragment"
+            app:destination="@id/comentListFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.pokedexfinal.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/comentListFragment"
+        android:name="com.example.pokedexfinal.ui.coments.ComentListFragment"
+        android:label="fragment_coments"
+        tools:layout="@layout/fragment_coments" >
+        <argument
+            android:name="idPoke"
+            app:argType="integer" />
+    </fragment>
 </navigation>

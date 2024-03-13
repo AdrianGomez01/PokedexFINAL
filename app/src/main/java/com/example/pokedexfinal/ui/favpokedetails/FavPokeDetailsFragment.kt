@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
+import com.example.pokedexfinal.ui.favpokelist.FavPokemonListFragmentDirections
 import kotlinx.coroutines.launch
 
 class FavPokeDetailsFragment : Fragment() {
@@ -58,8 +59,15 @@ class FavPokeDetailsFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        binding.fabAdd.setOnClickListener{
-           // ComentListFragment.addComent(coment)
+        binding.fabAdd.setOnClickListener {
+            val action = favPokeDetailsVM.uiState.value.poke?.let { it1 ->
+                FavPokeDetailsFragmentDirections.actionFavPokeDetailsFragment2ToComentListFragment(
+                    it1.id
+                )
+            }
+            if (action != null) {
+                findNavController().navigate(action)
+            }
         }
     }
 
@@ -67,11 +75,12 @@ class FavPokeDetailsFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 favPokeDetailsVM.uiState.collect { pokeState ->
-                    if(!pokeState.isLoading) {
+                    if (!pokeState.isLoading) {
                         binding.pbLoadingDetails.isVisible = false
                         pokeState.poke?.let {
                             binding.tvFavPokeNameDetails.text = it.name
-                            Glide.with(requireContext()).load(it.photo).into(binding.ivFavPokeDetails)
+                            Glide.with(requireContext()).load(it.photo)
+                                .into(binding.ivFavPokeDetails)
                             binding.tvFavTipo1Det.text = it.type1
                             binding.tvFavTipo2Det.text = it.type2
                             binding.tvAltura.text = it.altura

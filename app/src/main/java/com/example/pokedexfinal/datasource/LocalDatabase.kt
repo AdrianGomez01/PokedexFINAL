@@ -5,13 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.pokedexfinal.api.Pokemon
+import com.example.pokedexfinal.datamodel.UserComents
 
 @Database(
-    entities = [Pokemon::class],
-    version = 1,
+    entities = [Pokemon::class, UserComents::class],
+    version = 2,
     exportSchema = false)
 abstract class LocalDatabase : RoomDatabase() {
     abstract fun pokesDao(): PokesDao
+    abstract fun comentsDao(): ComentsDao
 
     companion object {
         @Volatile
