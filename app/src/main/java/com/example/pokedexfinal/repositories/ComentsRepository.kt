@@ -22,4 +22,6 @@ class ComentsRepository(
     suspend fun getPokeComents(id:Int) : List<UserComents> = withContext(ioDispatcher) {
         return@withContext comentsDao.getPokeComents(id)
     }
+
+
 }

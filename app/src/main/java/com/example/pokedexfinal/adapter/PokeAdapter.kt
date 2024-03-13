@@ -60,7 +60,6 @@ class PokeAdapter(
         _pokeList = pokes.toMutableList()
     }
 
-    //TODO
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         holder.bind(_pokeList[position], onClickAdd, onClickRoot)
     }

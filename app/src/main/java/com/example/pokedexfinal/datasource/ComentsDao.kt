@@ -15,5 +15,6 @@ interface ComentsDao {
     fun insert(coment: UserComents)
 
     @Query("SELECT * FROM userComents WHERE pokeId LIKE :id ")
-    fun getPokeComents(id : Int):List<UserComents>
+    fun getPokeComents(id: Int):List<UserComents>
+
 }

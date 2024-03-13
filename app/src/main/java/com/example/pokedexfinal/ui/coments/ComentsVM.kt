@@ -4,19 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.datamodel.UserComents
-import com.example.pokedexfinal.datamodel.UserPreferences
+import com.example.pokedexfinal.datasource.ComentsDao
 import com.example.pokedexfinal.dependencies.MyPokedex
 import com.example.pokedexfinal.repositories.ComentsRepository
-import com.example.pokedexfinal.ui.pokelist.PokeListUiState
-import com.example.pokedexfinal.ui.pokelist.PokeListVM
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.lang.Error
 
 class ComentsVM(
     private val comentsRepository: ComentsRepository
@@ -25,13 +21,16 @@ class ComentsVM(
     private val _uiState: MutableStateFlow<ComentsUiState> = MutableStateFlow(ComentsUiState())
     val uiState: StateFlow<ComentsUiState> = _uiState.asStateFlow()
 
+
     init {
         getComents()
     }
 
-    private fun getComents() {
+    fun getComents() {
         viewModelScope.launch {
-            val comentList = comentsRepository.getPokeComents(uiState.value.pokeId)
+            //TODO Tiene que ser aqui donde me falla al filtrar los coment por pokeID
+           val comentList = comentsRepository.getPokeComents(uiState.value.pokeId)
+            //val comentList = comentsRepository.getAll()
             _uiState.update { currentSate ->
                 currentSate.copy(
                     isLoading = false,
@@ -49,9 +48,10 @@ class ComentsVM(
                 currentState.copy(
                     autorName = coment.autor,
                     pokeId = coment.pokeId,
-                    text = coment.texto
+                    text = coment.texto,
                 )
             }
+            getComents()
         }
 
     }

@@ -80,11 +80,14 @@ class FavPokemonListFragment : Fragment() {
 
         setCollectors()
 
+        setListeners()
+
+    }
+
+    private fun setListeners() {
         binding.btnBack.setOnClickListener{
             findNavController().popBackStack()
         }
-
-
     }
 
     private fun initRecView() {

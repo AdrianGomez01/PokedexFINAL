@@ -17,7 +17,7 @@ class ComentsAdapter(
     class ComentsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ComentItemBinding.bind(view)
 
-        fun bind( coment: UserComents ) {
+        fun bind(coment: UserComents) {
             binding.tvUserComent.text = coment.autor
             binding.tvComentText.text = coment.texto
         }
@@ -37,7 +37,10 @@ class ComentsAdapter(
         holder.bind(_comentList[position])
     }
 
-    fun setComentsList(coment : List<UserComents>) {
+    fun setComentsList(coment: List<UserComents>) {
         _comentList = coment.toMutableList()
     }
+
+
+
 }

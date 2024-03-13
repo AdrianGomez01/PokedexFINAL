@@ -16,11 +16,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokedexfinal.adapter.ComentsAdapter
 import com.example.pokedexfinal.databinding.FragmentComentsBinding
-import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
 import com.example.pokedexfinal.datamodel.UserComents
-import com.example.pokedexfinal.datamodel.UserPreferences
 import com.example.pokedexfinal.ui.login.LoginVM
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 
@@ -38,6 +35,8 @@ class ComentListFragment : Fragment() {
 
 
     private lateinit var comentsAdapter: ComentsAdapter
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +82,7 @@ class ComentListFragment : Fragment() {
     }
 
 
+
     private fun setCollectors() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -114,6 +114,7 @@ class ComentListFragment : Fragment() {
             )
 
             comentsVM.addComent(comentario)
+
         }
     }
 

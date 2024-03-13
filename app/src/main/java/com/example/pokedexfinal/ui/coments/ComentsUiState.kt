@@ -1,6 +1,5 @@
 package com.example.pokedexfinal.ui.coments
 
-import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.datamodel.UserComents
 
 data class ComentsUiState(
