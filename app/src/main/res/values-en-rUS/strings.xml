@@ -5,7 +5,7 @@
     <string name="greeting">Welcome to the Pokedex!</string>
     <string name="credits">Credits</string>
     <string name="contact">Contact</string>
-    <string name="appInfo">You are using version 1 of the Pokedex.\nIn this application, you can check the data of your favorite Pokemon, such as their types, descriptions, moves, etc...</string>
+    <string name="appInfo">You are using version 1 of the Pokedex.\nIn this application, you can check the data of your favorite Pokemon, such as their types, descriptions, moves, etc…</string>
     <string name="mail">agomgar180@g.educaand.es</string>
     <string name="subject">Pokedex App Inquiry</string>
     <string name="Enter">Enter</string>
@@ -25,4 +25,22 @@
     <string name="start">Start</string>
     <string name="welcome">Welcome!</string>
     <string name="hintWelcome">In this application, you can check Pokemon and save your favorites!</string>
+    <string name="no_name" translatable="false">Enter a valid username</string>
+    <string name="peso">Weight</string>
+    <string name="altura">Height</string>
+    <string name="id">ID</string>
+    <string name="no_volver_a_mostrar">Do not show Intro again</string>
+    <string name="error">Error saving data</string>
+    <string name="save">Save</string>
+    <string name="settings_saves">Saved Options</string>
+    <string name="tus_pokemon_favoritos">Your Favorite Pokemon</string>
+    <string name="lista_de_pokemons">Pokemon List</string>
+    <string name="volver">Back</string>
+    <string name="delete">DELETE</string>
+    <string name="support_confirm_delete">Are you sure you want to delete it?</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="comentarios_de_los_usuarios">User Comments</string>
+    <string name="a_adir_un_comentario">Add a comment…</string>
 </resources>
+

@@ -63,17 +63,9 @@ class PokeListFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokeListVM.uiState.collect { pokeState ->
                     if (pokeListVM.uiState.value.isFav) {
-                        Snackbar.make(
-                            requireView(),
-                            "${poke.name} Ya pertenece a tus favoritos.",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(requireView(), "${poke.name} Ya pertenece a tus favoritos.", Snackbar.LENGTH_SHORT).show()
                     } else {
-                        Snackbar.make(
-                            requireView(),
-                            "Has añadido a ${poke.name} a tus favoritos.",
-                            Snackbar.LENGTH_SHORT
-                        ).show()
+                        Snackbar.make(requireView(), "Has añadido a ${poke.name} a tus favoritos.", Snackbar.LENGTH_SHORT).show()
                     }
                 }
             }

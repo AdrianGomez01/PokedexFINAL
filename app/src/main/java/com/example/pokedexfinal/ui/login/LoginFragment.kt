@@ -68,8 +68,14 @@ class LoginFragment : Fragment() {
             validateName(
                 binding.etUserName.text.toString()
             )
+        }
+    }
 
-            //Snackbar.make(requireView(), loginVM.uiState.value.name,Snackbar.LENGTH_SHORT).show()
+    private fun validateName(name: String) {
+        if (name.isBlank()) {
+            Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT).show()
+        } else {
+            loginVM.saveSettings(name)
             if (skipWelcome) {
                 val action = LoginFragmentDirections.actionLoginFragmentToMenuFragment()
                 findNavController().navigate(action)
@@ -77,14 +83,7 @@ class LoginFragment : Fragment() {
                 val action = LoginFragmentDirections.actionLoginFragmentToViewPagerFragment()
                 findNavController().navigate(action)
             }
-
         }
-    }
 
-    private fun validateName(name: String) {
-        if (name.isBlank())
-            Snackbar.make(requireView(), getString(R.string.no_name), Snackbar.LENGTH_SHORT).show()
-        else
-            loginVM.saveSettings(name)
     }
 }

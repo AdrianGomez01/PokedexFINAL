@@ -4,7 +4,7 @@
     <string name="greeting">Bienvenido a la pokedex!</string>
     <string name="credits">Créditos</string>
     <string name="contact">Contactar</string>
-    <string name="appInfo">Estás usando la versión 1 de la Pokédex.\nEn esta aplicación podrás comprobar los datos de los pokemon que más te gustan, como por ejemplo sus tipos, descripción, movimientos, etc...</string>
+    <string name="appInfo">Estás usando la versión 1 de la Pokédex.\nEn esta aplicación podrás comprobar los datos de los pokemon que más te gustan, como por ejemplo sus tipos, descripción, movimientos, etc…</string>
     <string name="mail">agomgar180@g.educaand.es</string>
     <string name="subject">Consulta de la app Pokedex</string>
     <string name="Enter">Entrar</string>
@@ -40,5 +40,5 @@
     <string name="cancel">Cancelar</string>
     <string name="accept">Aceptar</string>
     <string name="comentarios_de_los_usuarios">Comentarios de los Usuarios</string>
-    <string name="a_adir_un_comentario">Añadir un comentario...</string>
+    <string name="a_adir_un_comentario">Añadir un comentario…</string>
 </resources>
