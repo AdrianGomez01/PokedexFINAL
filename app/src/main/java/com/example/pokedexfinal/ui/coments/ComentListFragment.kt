@@ -126,6 +126,7 @@ class ComentListFragment : Fragment() {
                     requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
 
+                binding.etIntroComent.text = null
                 Snackbar.make(requireView(),"Se ha añadido tu comentario",Snackbar.LENGTH_SHORT).show()
 
             }
