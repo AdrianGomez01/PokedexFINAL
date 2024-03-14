@@ -13,9 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentStartBinding
-import com.example.pokedexfinal.ui.login.LoginFragmentDirections
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class StartFragment : Fragment() {

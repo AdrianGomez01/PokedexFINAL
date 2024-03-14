@@ -21,8 +21,6 @@ class FavPokeDetailsVM(
     )
     val uiState : StateFlow<FavPokeDetailsUiState> = _uiState.asStateFlow()
 
-    init {
-    }
 
     fun setPoke(idPoke: Int) {
         viewModelScope.launch {
@@ -36,7 +34,7 @@ class FavPokeDetailsVM(
                     )
                 }
             } else {
-                //procesar error...
+                //error
             }
         }
     }

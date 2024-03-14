@@ -14,15 +14,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.pokedexfinal.databinding.FragmentFavDetailsBinding
-import com.example.pokedexfinal.ui.coments.ComentsVM
-import com.example.pokedexfinal.ui.favpokelist.FavPokemonListFragmentDirections
 import kotlinx.coroutines.launch
 
 class FavPokeDetailsFragment : Fragment() {
 
-    companion object {
-        const val DRAWABLE = "drawable"
-    }
 
     private var _binding: FragmentFavDetailsBinding? = null
     private val binding

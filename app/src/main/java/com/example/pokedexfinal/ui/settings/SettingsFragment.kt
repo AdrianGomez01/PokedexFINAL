@@ -15,7 +15,6 @@ import com.example.pokedexfinal.databinding.FragmentSettingsBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
-
 class SettingsFragment : Fragment() {
 
     private lateinit var binding : FragmentSettingsBinding

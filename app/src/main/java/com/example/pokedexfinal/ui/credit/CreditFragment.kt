@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.MainActivity
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentCreditBinding
-import com.example.pokedexfinal.databinding.FragmentMenuBinding
 
 
 class CreditFragment : Fragment() {

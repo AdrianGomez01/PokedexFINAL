@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.databinding.FragmentUserInfoBinding
 import com.example.pokedexfinal.ui.login.LoginVM
-import com.example.pokedexfinal.ui.viewpager.ViewPagerFragmentDirections
 import kotlinx.coroutines.launch
 
 class UserInfoFragment : Fragment() {

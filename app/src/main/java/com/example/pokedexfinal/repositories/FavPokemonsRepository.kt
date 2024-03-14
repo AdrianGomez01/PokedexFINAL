@@ -1,14 +1,10 @@
 package com.example.pokedexfinal.repositories
 
-import android.util.Log
-import com.example.pokedexfinal.api.ApiService
 import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.datasource.PokesDao
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Response
-import kotlin.random.Random
 
 class FavPokemonsRepository (
     private val pokesDao: PokesDao,

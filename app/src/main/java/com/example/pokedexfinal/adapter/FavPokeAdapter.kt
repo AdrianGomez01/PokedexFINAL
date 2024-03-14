@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.pokedexfinal.R
 import com.example.pokedexfinal.api.Pokemon
 import com.example.pokedexfinal.databinding.FavPokemonItemBinding
-import com.google.android.material.snackbar.Snackbar
 
 class FavPokeAdapter(
     private var _favPokeList: MutableList<Pokemon>,

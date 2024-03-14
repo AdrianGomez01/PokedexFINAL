@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.pokedexfinal.datamodel.UserComents
-import com.example.pokedexfinal.datasource.ComentsDao
 import com.example.pokedexfinal.dependencies.MyPokedex
 import com.example.pokedexfinal.repositories.ComentsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,11 +20,6 @@ class ComentsVM(
     private val _uiState: MutableStateFlow<ComentsUiState> = MutableStateFlow(ComentsUiState())
     val uiState: StateFlow<ComentsUiState> = _uiState.asStateFlow()
 
-
-
-    init {
-
-    }
 
     fun getComents( id : Int) {
         viewModelScope.launch {
